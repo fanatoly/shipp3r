@@ -1,4 +1,4 @@
-name := "tjmx"
+name := "shipp3r"
 
 scalaVersion := "2.10.3"
 

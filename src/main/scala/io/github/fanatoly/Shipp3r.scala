@@ -6,7 +6,7 @@ import scopt._
 
 
 
-object S3mv extends App{
+object Shipp3r extends App{
   case class Params(
     jets3tFile: String = "jets3t.properties",
     localDirectory: Path = Paths.get(System.getProperty("user.dir")),
@@ -14,7 +14,7 @@ object S3mv extends App{
     dryRun: Boolean = false
   )
 
-  val parser = new OptionParser[Params]("s3mv"){
+  val parser = new OptionParser[Params]("shipp3r"){
     help("help")
     opt[String]('p', "properties").
       optional.

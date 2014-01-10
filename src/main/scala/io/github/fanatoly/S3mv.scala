@@ -1,8 +1,7 @@
 package io.github.fanatoly
 
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.Paths
+import java.nio.file._
+import s3mv._
 import scopt._
 
 
@@ -11,7 +10,7 @@ object S3mv extends App{
   case class Params(
     jets3tFile: String = "jets3t.properties",
     localDirectory: Path = Paths.get(System.getProperty("user.dir")),
-    remoteDirectory: Option[String] = None,
+    remoteDirectory: String = "s3://",
     dryRun: Boolean = false
   )
 
@@ -42,7 +41,7 @@ object S3mv extends App{
       required.
       valueName("<S3 path to move file into>").
       action { (remote, params)=>
-      params.copy(remoteDirectory = Some(remote))
+      params.copy(remoteDirectory = remote)
     }
 
     opt[Boolean]('d', "dry-run").
@@ -54,7 +53,15 @@ object S3mv extends App{
   }
 
   parser.parse(args, Params()) map { params =>
-    println(params)
+    val localFileList = DirectoryScanner.listFiles(params.localDirectory)
+    val uploads =
+      S3FileMapper.mapPaths(params.localDirectory, params.remoteDirectory, localFileList)
+
+    if(params.dryRun){
+      uploads.foreach( println(_) )
+    }else{
+      //Upload me please
+    }
   }
 
 

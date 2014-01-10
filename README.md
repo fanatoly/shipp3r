@@ -33,4 +33,4 @@ httpclient.read-throttle=512
 
 # References #
 
-- jets3t library hyperic/jets3t
+- [jets3t library](http://github.com/hyperic/jets3t)

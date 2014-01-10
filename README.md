@@ -1,11 +1,13 @@
 Shipp3r
 =======
 
-# Introduction #
+## Introduction ##
 
 This utility can be used to move an entire directory from local disk to S3. Upload to S3 is done by the jets3t library. This allows the upload to be bandwith throttled.
 
-# Basic Usage #
+## Basic Usage ##
+
+Shipp3r must be built from source. Once you have the source and a recent version of sbt(>=0.13). You can run `sbt pack-archive` in the top level of the cloned source tree to generate a tarball with dependencies and run-scripts
 
 ```
 Usage: shipp3r [options]
@@ -19,14 +21,15 @@ Usage: shipp3r [options]
   -r <S3 path to move file into> | --remote-directory <S3 path to move file into>
         
   -d | --dry-run
-        Default value: /home/fanatoly/workspace
 ```
 
-# Sample Properties File #
-
+## Sample Properties File ##
+```
 aws.accesskey = <REDACTED>
 aws.secretkey = <REDACTED>
 httpclient.read-throttle=512
+```
+
 
 # References #
 

@@ -47,7 +47,6 @@ object Shipp3r extends App{
     opt[Unit]('d', "dry-run").
       optional.
       valueName("<local directory path>").
-      text("Default value: " + Params().localDirectory).
       action { (_, params)=> params.copy( dryRun = true ) }
 
   }

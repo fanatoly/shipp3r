@@ -1,4 +1,4 @@
-package io.github.fanatoly.s3mv
+package io.github.fanatoly.shipp3r
 
 import java.nio.file._
 import scala.collection.mutable.Buffer

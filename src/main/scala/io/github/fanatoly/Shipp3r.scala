@@ -1,7 +1,7 @@
 package io.github.fanatoly
 
 import java.nio.file._
-import s3mv._
+import shipp3r._
 import scopt._
 
 

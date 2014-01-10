@@ -7,7 +7,7 @@ This utility can be used to move an entire directory from local disk to S3. Uplo
 
 # Basic Usage #
 
-`
+```
 Usage: shipp3r [options]
 
   --help
@@ -20,7 +20,7 @@ Usage: shipp3r [options]
         
   -d | --dry-run
         Default value: /home/fanatoly/workspace
-`
+```
 
 # Sample Properties File #
 

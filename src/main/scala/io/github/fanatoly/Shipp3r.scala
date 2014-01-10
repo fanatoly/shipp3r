@@ -44,11 +44,11 @@ object Shipp3r extends App{
       params.copy(remoteDirectory = remote)
     }
 
-    opt[Boolean]('d', "dry-run").
+    opt[Unit]('d', "dry-run").
       optional.
       valueName("<local directory path>").
       text("Default value: " + Params().localDirectory).
-      action { (dry, params)=> params.copy( dryRun = dry ) }
+      action { (_, params)=> params.copy( dryRun = true ) }
 
   }
 
@@ -60,7 +60,7 @@ object Shipp3r extends App{
     if(params.dryRun){
       uploads.foreach( println(_) )
     }else{
-      //Upload me please
+      new Uploader(params.jets3tFile).move(uploads)
     }
   }
 

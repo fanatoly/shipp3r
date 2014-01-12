@@ -34,3 +34,4 @@ httpclient.read-throttle=512
 ## References ##
 
 - [jets3t library](http://github.com/hyperic/jets3t)
+- [pessimal algorithms](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.116.9158&rep=rep1&type=pdf)
